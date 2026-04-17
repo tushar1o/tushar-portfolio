@@ -1,92 +1,106 @@
 function App() {
   return (
-    <div
-      style={{
-        background: "#0f172a",
-        color: "white",
-        minHeight: "100vh",
-        padding: "40px",
-        fontFamily: "Arial",
-      }}
-    >
-      {/* Heading */}
-      <h1 style={{ fontSize: "40px", textAlign: "center" }}>
-        Tushar Kapil 🚀
-      </h1>
+    <div style={container}>
 
-      <p style={{ textAlign: "center", color: "#94a3b8" }}>
-        Full Stack Developer (MERN)
+      {/* HEADER */}
+      <h1 style={title}>Tushar Kapil</h1>
+      <p style={subtitle}>Full Stack Developer (MERN)</p>
+
+      {/* CONTACT */}
+      <p style={contact}>
+        📧 your@email.com | 🔗 GitHub | 💼 LinkedIn
       </p>
 
-      {/* Projects Section */}
-      <h2 style={{ marginTop: "50px", textAlign: "center" }}>
-        Projects
-      </h2>
+      {/* SUMMARY */}
+      <Section title="Summary">
+        Passionate Full Stack Developer with experience in building web applications using MERN stack. 
+        Skilled in developing scalable backend systems and responsive frontend interfaces.
+      </Section>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "20px",
-          marginTop: "30px",
-          flexWrap: "wrap",
-        }}
-      >
-        {/* Food Delivery */}
+      {/* SKILLS */}
+      <Section title="Skills">
+        <ul>
+          <li>Frontend: HTML, CSS, JavaScript, React</li>
+          <li>Backend: Node.js, Express.js</li>
+          <li>Database: MongoDB, SQL</li>
+          <li>Tools: Git, Postman, VS Code</li>
+        </ul>
+      </Section>
+
+      {/* PROJECTS */}
+      <Section title="Projects">
+
         <div style={card}>
-          <h3>🍔 Food Delivery</h3>
-          <p>MERN app with cart, login & search</p>
-
-          <div style={{ marginTop: "10px" }}>
-            <a href="#" target="_blank">Live</a> |{" "}
-            <a href="#" target="_blank">GitHub</a>
-          </div>
+          <h3>🍔 Food Delivery App</h3>
+          <p>MERN app with authentication, cart, and search features.</p>
+          <a href="#">Live</a> | <a href="#">GitHub</a>
         </div>
 
-        {/* Job Portal */}
         <div style={card}>
           <h3>💼 Job Portal</h3>
-          <p>Apply & post jobs with authentication</p>
-
-          <div style={{ marginTop: "10px" }}>
-            <a href="#" target="_blank">Live</a> |{" "}
-            <a href="#" target="_blank">GitHub</a>
-          </div>
+          <p>Platform for job seekers and recruiters with role-based access.</p>
+          <a href="#">Live</a> | <a href="#">GitHub</a>
         </div>
 
-        {/* Pinterest Clone */}
         <div style={card}>
           <h3>📌 Pinterest Clone</h3>
-          <p>Image sharing with grid layout</p>
-
-          <div style={{ marginTop: "10px" }}>
-            <a href="#" target="_blank">Live</a> |{" "}
-            <a href="#" target="_blank">GitHub</a>
-          </div>
+          <p>Image sharing app with grid layout and user interaction.</p>
+          <a href="#">Live</a> | <a href="#">GitHub</a>
         </div>
-      </div>
 
-      {/* Contact Section (Correct Position) */}
-      <h2 style={{ marginTop: "60px", textAlign: "center" }}>
-        Contact
-      </h2>
+      </Section>
 
-      <p style={{ textAlign: "center", marginTop: "10px" }}>
-        Email: your@email.com
-      </p>
+      {/* CONTACT */}
+      <Section title="Contact">
+        <p>Email: your@email.com</p>
+        <p>GitHub | LinkedIn</p>
+      </Section>
 
-      <div style={{ textAlign: "center", marginTop: "10px" }}>
-        <a href="#">GitHub</a> | <a href="#">LinkedIn</a>
-      </div>
     </div>
   );
 }
 
-const card = {
-  background: "#1e293b",
+/* Reusable Section Component */
+function Section({ title, children }) {
+  return (
+    <div style={{ marginTop: "30px" }}>
+      <h2 style={sectionTitle}>{title}</h2>
+      <div style={{ marginTop: "10px" }}>{children}</div>
+    </div>
+  );
+}
+
+/* STYLES */
+const container = {
+  maxWidth: "900px",
+  margin: "auto",
   padding: "20px",
-  borderRadius: "10px",
-  width: "250px",
+  fontFamily: "Arial",
+};
+
+const title = {
+  textAlign: "center",
+  fontSize: "32px",
+};
+
+const subtitle = {
+  textAlign: "center",
+  color: "gray",
+};
+
+const contact = {
+  textAlign: "center",
+  fontSize: "14px",
+  marginBottom: "20px",
+};
+
+const sectionTitle = {
+  borderBottom: "2px solid black",
+  paddingBottom: "5px",
+};
+
+const card = {
+  marginBottom: "15px",
 };
 
 export default App;
